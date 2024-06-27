@@ -1,0 +1,52 @@
+<div class="navbar">
+    <span class="navbar-text">Farmacéuticas Perú</span>
+    <span class="cross-icon"><i class="fas fa-plus"></i></span>
+  </div>
+  
+  <div class="container mt-5">
+    <h2 class="text-primary mb-4">Despachar producto</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-info">Orden de venta</h4>
+        <form [formGroup]="despachoForm">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="ordenVenta" placeholder="Orden de venta" />
+            <button class="btn btn-primary" type="button" (click)="buscarOrdenVenta()">Verificar</button>
+          </div>
+          <div class="mb-3">
+            <label for="nombreCliente" class="form-label">Nombre del cliente</label>
+            <input type="text" class="form-control" formControlName="nombreCliente" id="nombreCliente" [attr.disabled]="true" />
+          </div>
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" formControlName="correo" id="correo" [attr.disabled]="true" />
+          </div>
+          <div class="mb-3">
+            <label for="validacion" class="form-label">Validación</label>
+            <input type="text" class="form-control" formControlName="validacion" id="validacion" [attr.disabled]="true" />
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4 class="text-info">Medicamentos</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre del medicamento</th>
+              <th>Cantidad</th>
+              <th>Ubicación del medicamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let medicamento of medicamentos">
+              <td>{{ medicamento.nombre }}</td>
+              <td>{{ medicamento.cantidad }}</td>
+              <td>{{ medicamento.ubicacion }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary w-100 mt-3" type="button" (click)="despachar()">Entregado</button>
+      </div>
+    </div>
+  </div>
+  

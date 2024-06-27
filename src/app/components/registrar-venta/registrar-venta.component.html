@@ -1,0 +1,75 @@
+<div class="navbar">
+    <span class="navbar-text">Farmacéuticas Perú</span>
+    <span class="cross-icon"><i class="fas fa-plus"></i></span>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-primary mb-4">Registrar venta</h2>
+    <form [formGroup]="ventaForm" (ngSubmit)="onSubmit($event)">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-info">Datos del cliente</h4>
+                <div class="mb-3">
+                    <label for="dni" class="form-label">DNI</label>
+                    <input type="text" class="form-control" formControlName="dni" id="dni" />
+                </div>
+                <div class="mb-3">
+                    <label for="nombres" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" formControlName="nombres" id="nombres" />
+                </div>
+                <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" formControlName="apellidos" id="apellidos" />
+                </div>
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" formControlName="direccion" id="direccion" />
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" formControlName="telefono" id="telefono" />
+                </div>
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="email" class="form-control" formControlName="correo" id="correo" />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Guardar</button>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-info">Buscar inventario</h4>
+                <div class="input-group mb-3">
+                    <select class="form-select" [(ngModel)]="selectedMedicamentoId" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let medicamento of medicamentos" [value]="medicamento.id_medicamento">{{ medicamento.nombre_medicamento }}</option>
+                    </select>
+                    <button class="btn btn-primary" type="button" (click)="buscarInventario()">Buscar</button>
+                </div>
+                <div *ngIf="inventarioFiltrado.length > 0">
+                    <h4 class="text-info">Inventario Filtrado</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Medicamento</th>
+                                <th>Stock</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Precio Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of inventarioFiltrado; let i = index">
+                                <td>{{ item.nombre_medicamento }}</td>
+                                <td>{{ item.stock }}</td>
+                                <td><input type="number" [(ngModel)]="item.cantidadSolicitada" [ngModelOptions]="{standalone: true}" (ngModelChange)="actualizarPrecioTotal(item)" class="form-control"></td>
+                                <td>{{ item.precio_unitario }}</td>
+                                <td>{{ item.precioTotal }}</td>
+                                <td><button class="btn btn-danger" (click)="eliminarArticulo(i)">Eliminar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success w-100" type="button" (click)="generarTicket()">Generar Ticket</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

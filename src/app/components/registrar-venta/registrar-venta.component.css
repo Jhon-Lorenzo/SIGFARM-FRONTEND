@@ -1,0 +1,120 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    background-color: #f8f9fa; /* Fondo gris claro */
+  }
+  
+  .navbar {
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Asegurar que todo el texto dentro de la barra sea blanco */
+    padding: 10px;
+    font-size: 2rem; /* Aumentar el tamaño de fuente para toda la barra de navegación */
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    align-items: center;
+    position: relative; /* Para posicionar elementos relativos */
+  }
+  
+  .navbar-text {
+    color: white; /* Color blanco para el texto */
+    font-size: 2rem; /* Aumentar el tamaño de fuente del texto */
+  }
+  
+  .cross-icon {
+    font-size: 2rem;
+    color: white; /* Color blanco para la cruz */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff; /* Fondo azul para el círculo */
+    border-radius: 50%; /* Hacer el contenedor redondo */
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Alto fijo */
+    display: flex; /* Usar flexbox para centrar la cruz */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    border: 2px solid white; /* Borde blanco alrededor del círculo */
+  }
+  
+  .container {
+    background-color: white; /* Fondo blanco para el contenedor */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añadir sombra para mejor contraste */
+    margin-top: 20px;
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }
+  
+  .text-info {
+    color: #17a2b8 !important;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .table thead th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+  
+  .mt-3 {
+    margin-top: 1rem !important;
+  }
+  
+  .mb-3 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .input-group .form-select {
+    margin-right: 10px;
+  }
+  
+  .btn-primary, .btn-outline-primary, .btn-success, .btn-danger {
+    width: 100%;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+  }
+  

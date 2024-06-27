@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://sigfarm-backend.onrender.com/api/v1';

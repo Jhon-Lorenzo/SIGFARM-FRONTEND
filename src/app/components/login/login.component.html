@@ -1,0 +1,20 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="cross-icon">
+      <i class="fas fa-plus"></i>
+    </div>
+    <h2>FARMACÉUTICAS PERÚ</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" formControlName="username" placeholder="USERNAME" />
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" formControlName="password" placeholder="PASSWORD" />
+      </div>
+      <button type="submit" class="login-button">LOGIN</button>
+      <a href="#" class="forgot-password">Forgot password?</a>
+    </form>
+  </div>
+</div>

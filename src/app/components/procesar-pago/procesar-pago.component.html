@@ -1,0 +1,76 @@
+<div class="navbar">
+    <span class="navbar-text">Farmacéuticas Perú</span>
+    <span class="cross-icon"><i class="fas fa-plus"></i></span>
+  </div>
+  
+  <div class="container mt-5">
+    <h2 class="text-primary mb-4">Procesar pago</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h4 class="text-info">Orden de venta</h4>
+        <form [formGroup]="pagoForm">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="ordenVenta" placeholder="Orden de venta" />
+            <button class="btn btn-primary" type="button" (click)="buscarOrdenVenta()">Verificar</button>
+          </div>
+          <div class="mb-3">
+            <label for="nombreCliente" class="form-label">Nombre del cliente</label>
+            <input type="text" class="form-control" formControlName="nombreCliente" id="nombreCliente" [attr.disabled]="true" />
+          </div>
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" formControlName="correo" id="correo" [attr.disabled]="true" />
+          </div>
+          <div class="mb-3">
+            <label for="montoPagar" class="form-label">Monto a pagar</label>
+            <input type="text" class="form-control" formControlName="montoPagar" id="montoPagar" [attr.disabled]="true" />
+          </div>
+          <div class="mb-3">
+            <label for="metodoPago" class="form-label">Método de pago</label>
+            <select class="form-select mb-3" formControlName="metodoPago" (change)="onMetodoPagoChange()">
+              <option *ngFor="let metodo of metodosPago" [value]="metodo">{{ metodo }}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6" *ngIf="mostrarFormularioEfectivo">
+        <h4 class="text-info">Monto a pagar</h4>
+        <form [formGroup]="pagoForm">
+          <div class="mb-3">
+            <label for="montoDado" class="form-label">Monto dado</label>
+            <input type="text" class="form-control" formControlName="montoDado" id="montoDado" />
+          </div>
+          <div class="mb-3">
+            <label for="vuelto" class="form-label">Vuelto</label>
+            <input type="text" class="form-control" formControlName="vuelto" id="vuelto" [attr.disabled]="true" />
+          </div>
+          <button class="btn btn-primary w-100" type="button" (click)="efectuarPago()">Efectuar pago</button>
+          <button class="btn btn-primary w-100 mt-3" type="button" (click)="generarTicket()">Generar ticket</button>
+        </form>
+      </div>
+      <div class="col-md-6" *ngIf="mostrarFormularioTarjeta">
+        <h4 class="text-info">Tus datos de pago</h4>
+        <form [formGroup]="pagoForm">
+          <div class="mb-3">
+            <label for="titularTarjeta" class="form-label">Titular de la tarjeta</label>
+            <input type="text" class="form-control" formControlName="titularTarjeta" id="titularTarjeta" />
+          </div>
+          <div class="mb-3">
+            <label for="numeroTarjeta" class="form-label">Número de la tarjeta</label>
+            <input type="text" class="form-control" formControlName="numeroTarjeta" id="numeroTarjeta" />
+          </div>
+          <div class="mb-3">
+            <label for="fechaVencimiento" class="form-label">Fecha de vencimiento</label>
+            <input type="text" class="form-control" formControlName="fechaVencimiento" id="fechaVencimiento" />
+          </div>
+          <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" formControlName="cvv" id="cvv" />
+          </div>
+          <button class="btn btn-primary w-100" type="button" (click)="efectuarPago()">Pagar ahora</button>
+          <button class="btn btn-primary w-100 mt-3" type="button" (click)="generarTicket()">Generar ticket</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
